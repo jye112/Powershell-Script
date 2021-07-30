@@ -14,7 +14,7 @@ Select-AzureRmSubscription -Subscription "My Demos"
 az account set --subscription "<subsciption name>"
 
 ## Resource List ##
-Get-AzureRmResource | Select-Object ResourceGroupName, Name, ResourceType | Export-Csv -Path "D:\Project\SK_Hynix_Resource_List.csv"
+Get-AzureRmResource | Select-Object ResourceGroupName, Name, ResourceType | Export-Csv -Path "D:\Resource_List.csv"
 
 ## Resource List Query ##
 az vm list -d --query "[].{​​​​​​​​resourceGroup:resourceGroup,name:name,status:powerState, location:location,privateIP:privateIps,publicip:publicIps, availabilitySet:availabilitySet.id}​​​​​​​​" -o table      
