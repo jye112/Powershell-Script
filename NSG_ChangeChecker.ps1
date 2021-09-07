@@ -9,13 +9,8 @@ $token ="" #slack token
 
 $NSGs = Get-AzureRmNetworkSecurityGroup
 
-New-SlackMessageAttachment -Color $_PSSlackColorMap.red `
-                                                    -Title 'NSG alert start' `
-                                                    -Fallback 'NSG alert start' |
-                            New-SlackMessage -Channel '#vm_valid_check' `
-                                            -Username "NSG_Checker_US" `
-                                            -IconEmoji :us: |
-                            Send-SlackMessage -Uri $url
+New-SlackMessageAttachment -Color $_PSSlackColorMap.red -Title 'NSG alert start' -Fallback 'NSG alert start' | New-SlackMessage -Channel '#vm_valid_check' -Username "NSG_Checker_US" `-IconEmoji :us: |
+Send-SlackMessage -Uri $url
 
 while($true)
 {
