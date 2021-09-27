@@ -1,5 +1,5 @@
 $date = Get-Date -Format "yyyyMMdd"
-$title = ("SECC_Azure_All_Resource_List_" + $date)
+$title = ("Azure_All_Resource_List_" + $date)
 
 # VirtualMachine
 $All_VM_NIC_infos = @()
