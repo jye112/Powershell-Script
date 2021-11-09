@@ -93,6 +93,10 @@ $ALL_NSG=foreach( $azNsg in $azNsgs ) {
 $ALL_NSG | Export-Excel -Path "D:\$title.xlsx" -WorksheetName NetworkSecurityGroup
 
 
+# LogAnalytic Workspace
+$ALL_LA = Get-AzOperationalInsightsWorkspace | Select-Object ResourceGroupName, Name, Location, Sku, retentionInDays | Export-Excel -Path "D:\$title.xlsx" -WorksheetName LogAnalyticWorkspace
+
+
 # vWAN/vHub
 $All_vHub_infos = @()
 $vHubs = az network vhub list --resource-group secc-net-krc-vwan-rg --query "[].{AddressPrefix:addressPrefix, Location:location, VirtualHubName:name, ResourceGroup:resourceGroup, SKU:sku, VirtualRouterASN:virtualRouterAsn, VirtualRouterIPs:virtualRouterIps, VirtualWAN:virtualWan.id, VPNGateway:vpnGateway.id}" -o json `
@@ -128,3 +132,17 @@ $ER_Right=az network express-route gateway list --query "value[].{ER_Connection_
 Join-Object -Left $ER_Left -Right $ER_Right -LeftJoinProperty ER_Circuit_Name -RightJoinProperty ER_Circuit_Name -Type AllInLeft -ExcludeRightProperties "ER_Circuit_Name" | Export-Excel -Path "D:\$title.xlsx" -WorksheetName ExpressRoute
 
 
+#VPN Site BGP Enabled?
+$All_vHub_vpnconn_infos = @()
+foreach ($vpngwname in $vhubs.vHub_VPNGateway_Name) {
+   
+    $vHub_vpn_bgp = Get-AzVpnConnection -ResourceGroupName secc-net-krc-vwan-rg -ParentResourceName $vpngwname
+    foreach ($bgp in $vHub_vpn_bgp) {
+        $vHubConf = New-Object -TypeName psobject
+        $bgp_SiteName = $bgp.Name.Split("-")[1] + "-" + $bgp.Name.Split("-")[2] + "-" + $bgp.Name.Split("-")[3]
+        $vHubConf | Add-Member  -MemberType NoteProperty -Name "vHub_SiteName" -Value $bgp_SiteName 
+        $vHubConf | Add-Member  -MemberType NoteProperty -Name "vHub_EnableBgp" -Value $bgp.EnableBgp 
+        $All_vHub_vpnconn_infos += $vHubConf
+    }
+}
+$All_vHub_vpnconn_infos | Export-Excel -Path "D:\$title.xlsx" -WorksheetName vpnSite-enable_bgp?
