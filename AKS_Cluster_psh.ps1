@@ -7,7 +7,7 @@ $AKSClusterName = "aks-cluster"
 New-AzResourceGroup -Name $ResourceGroup -Location koreacentral
 
 ## AKS 클러스터 생성
-New-AzAksCluster -ResourceGroupName $ResourceGroup -Name $AKSClusterName -NodeCount 3 -NodeVmSize Standard_D2s_v3
+New-AzAksCluster -ResourceGroupName $ResourceGroup -Name $AKSClusterName -NodeCount 3 -NodeVmSize Standard_D2s_v3 -NetworkPlugin azure -ServiceCidr 10.0.0.0/16 -DnsServiceIP 10.0.0.10 -DockerBridgeCidr 172.17.0.1/16 
 
 ## 클러스터를 로컬 환경과 연결
 Install-AzAksKubectl
