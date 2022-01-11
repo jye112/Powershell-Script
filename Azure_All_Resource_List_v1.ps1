@@ -346,18 +346,7 @@ Get-AzLoadBalancer | Select-Object -ExpandProperty InboundNatRules
 
 
 
-####    2-7. Application Gateway    ####
-# 1) 기본 정보
-Get-AzApplicationGateway | Select-Object -ExpandProperty Name, ResourceGroupName, Locaton
-# 2) Backend Pool
 
-# 3) Http Setting
-
-# 4) Listener
-
-# 5) Rule
-
-# 6) Health Probes
 
 
 
