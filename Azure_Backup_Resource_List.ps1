@@ -34,7 +34,7 @@ if($no_backup_vms -ne $null) {
 
 #Install-Module -Name Az.DataProtection
 $disks = (Get-AzDisk).Name
-$rg = "jdp_common_rg"
+$rg = ""
 $vault = Get-AzDataProtectionBackupVault
 $backup_disks = Get-AzDataProtectionBackupInstance -ResourceGroupName $rg -VaultName $vault.Name
 
@@ -94,12 +94,12 @@ $result += $backup_vms | % {[PSCustomObject]@{
 
 
 ## Azure Disk ##
-$rg = "jdp_common_rg"
+$rg = ""
 $vault = Get-AzDataProtectionBackupVault
 $backup_disks = Get-AzDataProtectionBackupInstance -ResourceGroupName $rg -VaultName $vault.Name
 $result += $backup_disks | % {[PSCustomObject]@{
     Name = $_.Name
-    ResourceGroup = "jdp_common_rg"
+    ResourceGroup = ""
     Type = "AzureDisk"
 }}
 
