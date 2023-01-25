@@ -49,7 +49,7 @@ $masterNIC = New-AzNetworkInterface `
 -SubnetID $vnet.Subnets[0].Id `
 -PublicIpAddressId $masterpip.Id
 
-$securePassword = ConvertTo-SecureString "qwer1234!@#$" -AsPlainText -Force
+$securePassword = ConvertTo-SecureString "password" -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword) 
 
 $vmConfig = New-AzVMConfig `
@@ -93,7 +93,7 @@ $worker01NIC = New-AzNetworkInterface `
 -SubnetID $vnet.Subnets[0].Id `
 -PublicIpAddressId $workerpip.Id
 
-$securePassword = ConvertTo-SecureString 'qwer1234!@#$' -AsPlainText -Force
+$securePassword = ConvertTo-SecureString 'password' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword) 
 
 $vmConfig = New-AzVMConfig `
@@ -129,7 +129,7 @@ $worker02NIC = New-AzNetworkInterface `
 -Location $Location `
 -SubnetID $vnet.Subnets[0].Id 
 
-$securePassword = ConvertTo-SecureString 'qwer1234!@#$' -AsPlainText -Force
+$securePassword = ConvertTo-SecureString 'password' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword) 
 
 $vmConfig = New-AzVMConfig `
