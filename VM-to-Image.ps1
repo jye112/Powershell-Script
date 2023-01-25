@@ -1,8 +1,8 @@
-$resourceGroup = "test-rg"
+$resourceGroup = ""
 $location = "koreacentral"
-$galleryName = "hwtestgallery"
-$sourceVMName = "test-vm"
-$imagedefName = "test-image-definition"
+$galleryName = ""
+$sourceVMName = ""
+$imagedefName = ""
 
 ## Image Gallery 생성 ##
 New-AzGallery `
