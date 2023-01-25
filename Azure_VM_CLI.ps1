@@ -36,16 +36,16 @@ az network nic create --resource-group $RG --name test-nic-03 --vnet-name $vnet 
 az network nic create --resource-group $RG --name test-nic-04 --vnet-name $vnet --subnet $subnet 
 
 # VM 01 생성
-az vm create --resource-group $RG --name test-vm-01 --nics test-nic-01 --image UbuntuLTS --admin-username jye112 --admin-password qwer1234!@#$  
+az vm create --resource-group $RG --name test-vm-01 --nics test-nic-01 --image UbuntuLTS --admin-username testuser --admin-password password
 
 # VM 02 생성
-az vm create --resource-group $RG --name test-vm-02 --nics test-nic-02 --image UbuntuLTS --admin-username jye112 --admin-password qwer1234!@#$
+az vm create --resource-group $RG --name test-vm-02 --nics test-nic-02 --image UbuntuLTS --admin-username testuser --admin-password password
 
 # VM 03 생성
-az vm create --resource-group $RG --name test-vm-03 --nics test-nic-03 --image UbuntuLTS --admin-username jye112 --admin-password qwer1234!@#$
+az vm create --resource-group $RG --name test-vm-03 --nics test-nic-03 --image UbuntuLTS --admin-username testuser --admin-password password
 
 # VM 04 생성
-az vm create --resource-group $RG --name test-vm-04 --nics test-nic-04 --image UbuntuLTS --admin-username jye112 --admin-password qwer1234!@#$
+az vm create --resource-group $RG --name test-vm-04 --nics test-nic-04 --image UbuntuLTS --admin-username testuser --admin-password password
 
 # Public IP 생성
 az network public-ip create --resource-group $RG --name test-pip-01 --sku Standard
