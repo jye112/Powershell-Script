@@ -9,16 +9,12 @@ Get-AzureRmSubscription
 az account list --output table
 
 ## Default 구독 변경 ##
-Select-AzSubscription -Subscription "My Demos"
-Select-AzureRmSubscription -Subscription "My Demos"
-az account set --subscription "<subsciption name>"
+Select-AzSubscription -Subscription "<subsciption>"
+Select-AzureRmSubscription -Subscription "<subsciption>"
+az account set --subscription "<subsciption>"
 
 ## Resource List ##
 Get-AzureRmResource | Select-Object ResourceGroupName, Name, ResourceType | Export-Csv -Path "D:\Resource_List.csv"
-
-## Resource List Query ##
-az vm list -d --query "[].{​​​​​​​​resourceGroup:resourceGroup,name:name,status:powerState, location:location,privateIP:privateIps,publicip:publicIps, availabilitySet:availabilitySet.id}​​​​​​​​" -o table      
-(Get-AzNetworkInterface).IpConfigurations | Select-Object Id, PrivateIpAllocationMethod, PrivateIpAddress | Export-csv "C:\11.csv"
 
 
 ## VMName     PrivateIpAddress     PrivateIpAllocationMethod ##
