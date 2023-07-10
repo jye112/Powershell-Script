@@ -15,4 +15,5 @@
 * NSG_ChangeChecker.ps1 : Azure Network Security Group(NSG) 상 변경 사항이 있을 때 Slack에 알림을 주기 위한 스크립트
 * NSG_Rule_Setting.ps1 : Azure NSG 상에 규칙을 일괄 적용하기 위한 스크립트
 * VM-to-Image.ps1 : Azure VM을 이미지로 만들기 위한 스크립트
+* VN_Deploy.ps1 : Azure VM을 배포하는 기본적인 스크립트
 * Windows Features.ps1 : Windows 상에 설치된 Windows Feature를 확인하거나 새롭게 설치하기 위한 스크립트
