@@ -46,7 +46,7 @@ foreach($nic in $nics)
     $VMList | Add-Member -MemberType NoteProperty -Name "Location" -Value $vm.Location
     $ALL_VM += $VMList
 }
-$All_VM | Export-Excel -Path "D:\test2.xlsx" -WorksheetName VirtualMachine -AutoSize
+$All_VM | Export-Excel -Path "D:\resource.xlsx" -WorksheetName VirtualMachine -AutoSize
 
 
 ####     1-2. Virtual Machine Scale Set     ####
@@ -86,7 +86,7 @@ foreach($disk in $disks)
     $DiskList | Add-Member -MemberType NoteProperty -Name "Location" -Value $disk.Location
     $ALL_DISK += $DiskList
 }
-$All_VNET | Export-Excel "D:\test.xlsx"
+$All_VNET | Export-Excel "D:\resource.xlsx"
 
 
 ############    2. Networking   ############
@@ -132,7 +132,7 @@ foreach($vnet in $vnets){
     $VnetList | Add-Member -MemberType NoteProperty -Name "GatewayTransit" -Value $gwtransit
     $ALL_VNET += $VnetList
 }
-$All_VNET | Export-Excel "D:\test.xlsx"
+$All_VNET | Export-Excel "D:\resource.xlsx"
 
 
 ####    2-2. Public IP    ####
@@ -166,7 +166,7 @@ foreach($pip in $pips){
     $PIPList | Add-Member -MemberType NoteProperty -Name "Location" -Value $pip.Location
     $ALL_PIP += $PIPList
 }
-$All_PIP | Export-Excel "D:\test.xlsx"
+$All_PIP | Export-Excel "D:\resource.xlsx"
 
 
 
@@ -200,7 +200,7 @@ foreach($NSGInfo in $NSGInfos){
     $NSGRules | Add-Member  -MemberType NoteProperty -Name "ResourceGroupName" -Value $azNsg.ResourceGroupName
     $All_NSGInfos += $NSGRules
 }
-$All_NSG | Export-Excel "D:\test.xlsx"
+$All_NSG | Export-Excel "D:\resource.xlsx"
 
 
 
@@ -227,7 +227,7 @@ foreach($udrInfo in $udrInfos){
     $UDRList | Add-Member  -MemberType NoteProperty -Name "NextHopIPAddress" -Value $udrInfo.NextHopIpAddress
     $ALL_UDR += $UDRList
 }
-$All_UDR | Export-Excel "D:\test.xlsx"
+$All_UDR | Export-Excel "D:\resource.xlsx"
 
 
 
@@ -251,7 +251,7 @@ foreach($pendpoint in $pendpoints){
     $PEList | Add-Member  -MemberType NoteProperty -Name "Location" -Value $pendpoint.Location
     $ALL_PL += $PEList
 }
-$All_PL | Export-Excel "D:\test.xlsx"
+$All_PL | Export-Excel "D:\resource.xlsx"
 
 
 
