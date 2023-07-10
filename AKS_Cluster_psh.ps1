@@ -1,7 +1,7 @@
 ################ Powershell ################
 
-$ResourceGroup = "aks-cluster-rg"
-$AKSClusterName = "aks-cluster"
+$ResourceGroup = ""
+$AKSClusterName = ""
 
 # Resource Group 생성
 New-AzResourceGroup -Name $ResourceGroup -Location koreacentral
@@ -14,7 +14,7 @@ Install-AzAksKubectl
 Import-AzAksCredential -ResourceGroupName $ResourceGroup -Name $AKSClusterName
 
 # Container Registry 생성
-$registry = New-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name "jyeContainerRegistry" -EnableAdminUser -Sku Basic
+$registry = New-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name "" -EnableAdminUser -Sku Basic
 
 # Container Registry 서비스 주체 인증
 $creds = Get-AzContainerRegistryCredential -Registry $registry
