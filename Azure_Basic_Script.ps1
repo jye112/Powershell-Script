@@ -49,18 +49,6 @@ Function Get-Duplicate($b)
     $a.Group
 }
 
-#Function Get-Duplicate($Array) 
-#{
-#    $Unique = $Array | Get-unique | Select-Object VpnUserName
-#    $Duplicates = (Compare-Object -ReferenceObject $Array -DifferenceObject $Unique | where { $_.sideIndicator -like "<=" }).inputobject
-#    $UniqueDuplicates = $Duplicates | Get-unique | Select-Object VpnUserName
-#    Foreach ($Duplicate in $UniqueDuplicates)
-#    {
-#        $Duplicate
-#    }
-#}
-
-
 
 ## Dissociated NIC ##
 Get-AzNetworkInterface | where-object { $_.VirtualMachine -eq $null } | Select-Object Name
